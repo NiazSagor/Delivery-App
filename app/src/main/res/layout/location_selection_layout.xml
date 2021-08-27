@@ -16,7 +16,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:alpha="0.2"
-        android:background="@color/grey" />
+        android:background="@android:color/darker_gray" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

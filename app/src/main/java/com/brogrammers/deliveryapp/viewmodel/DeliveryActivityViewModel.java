@@ -3,17 +3,17 @@ package com.brogrammers.deliveryapp.viewmodel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.brogrammers.deliveryapp.ApiInterface;
+import com.brogrammers.deliveryapp.Result;
+import com.brogrammers.deliveryapp.UserHelper;
+import com.brogrammers.deliveryapp.callback.OnParcelOrderPlacedCallback;
+import com.brogrammers.deliveryapp.model.ParcelDeliveryOrder;
+import com.brogrammers.deliveryapp.model.PaymentStatus;
+import com.brogrammers.deliveryapp.model.Receiver;
+import com.brogrammers.deliveryapp.utility.Utility;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.paikariwala.user.ApiInterface;
-import com.paikariwala.user.Result;
-import com.paikariwala.user.callbacks.OnParcelOrderPlacedCallback;
-import com.paikariwala.user.helpers.UserHelper;
-import com.paikariwala.user.model.ParcelDeliveryOrder;
-import com.paikariwala.user.model.PaymentStatus;
-import com.paikariwala.user.model.Receiver;
-import com.paikariwala.user.utility.Utility;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -78,9 +78,9 @@ public class DeliveryActivityViewModel extends ViewModel {
         getOrder().getValue().setDestinationAddress(receiver.getReceiverAddress()); // set destination address
     }
 
-    private Result.Distance distance = null;
+    private com.brogrammers.deliveryapp.Result.Distance distance = null;
 
-    public Result.Distance getDistance() {
+    public com.brogrammers.deliveryapp.Result.Distance getDistance() {
         return distance;
     }
 
@@ -117,7 +117,7 @@ public class DeliveryActivityViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onSuccess(@NotNull Result result) {
+                    public void onSuccess(@NotNull com.brogrammers.deliveryapp.Result result) {
                         distance = result.getRows().get(0).getElements().get(0).getDistance();
                         setDeliveryDistance(Utility.getDistance(distance));
 
