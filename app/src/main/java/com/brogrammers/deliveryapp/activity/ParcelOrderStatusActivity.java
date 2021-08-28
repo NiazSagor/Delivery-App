@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.brogrammers.deliveryapp.Constants;
+import com.brogrammers.deliveryapp.R;
 import com.brogrammers.deliveryapp.adapter.OrderTrackAdapter;
 import com.brogrammers.deliveryapp.callback.OnDocumentReferenceCallback;
 import com.brogrammers.deliveryapp.callback.OnOrderTrackCollectionQueryCallback;
@@ -90,6 +91,7 @@ public class ParcelOrderStatusActivity extends AppCompatActivity implements OnMa
 
             // as this order is ongoing, we are initiating the map
             SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_view);
+
             assert mapFragment != null;
             mapFragment.getMapAsync(this);
 

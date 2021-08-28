@@ -3,23 +3,19 @@ package com.brogrammers.deliveryapp.utility;
 import android.location.Address;
 import android.util.Log;
 
+import com.brogrammers.deliveryapp.AppInitializer;
+import com.brogrammers.deliveryapp.Constants;
+import com.brogrammers.deliveryapp.Result;
+import com.brogrammers.deliveryapp.UserHelper;
+import com.brogrammers.deliveryapp.model.LocationStatus;
+import com.brogrammers.deliveryapp.model.ParcelOrderTrack;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.paikariwala.user.AppInitializer;
-import com.paikariwala.user.Constants;
-import com.paikariwala.user.Result;
-import com.paikariwala.user.callbacks.OnMerchantRegistrationCallback;
-import com.paikariwala.user.helpers.UserHelper;
-import com.paikariwala.user.model.LocationStatus;
-import com.paikariwala.user.model.ParcelOrderTrack;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
 
 public class Utility {
 
@@ -114,29 +110,29 @@ public class Utility {
         return range;
     }
 
-    public static void checkIfMerchant(OnMerchantRegistrationCallback callback) {
-        FirebaseFirestore.getInstance()
-                .collection("USERS")
-                .document(Objects.requireNonNull(UserHelper.getUser().getUid()))
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                    @Override
-                    public void onSuccess(DocumentSnapshot documentSnapshot) {
-                        if (documentSnapshot.exists()) {
-
-                            if (Objects.equals(documentSnapshot.get("hasApplied"), true) && Objects.equals(documentSnapshot.get("approved"), true)) {
-
-                                callback.onMerchantRegistered();
-
-                            } else if (Objects.requireNonNull(documentSnapshot.get("hasApplied")).equals(true) && Objects.requireNonNull(documentSnapshot.get("approved")).equals(false)) {
-                                callback.onMerchantPendingApproval();
-                            } else {
-                                callback.onMerchantUnregistered();
-                            }
-
-                        }
-                    }
-                });
-
-    }
+//    public static void checkIfMerchant(OnMerchantRegistrationCallback callback) {
+//        FirebaseFirestore.getInstance()
+//                .collection("USERS")
+//                .document(Objects.requireNonNull(UserHelper.getUser().getUid()))
+//                .get()
+//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                        if (documentSnapshot.exists()) {
+//
+//                            if (Objects.equals(documentSnapshot.get("hasApplied"), true) && Objects.equals(documentSnapshot.get("approved"), true)) {
+//
+//                                callback.onMerchantRegistered();
+//
+//                            } else if (Objects.requireNonNull(documentSnapshot.get("hasApplied")).equals(true) && Objects.requireNonNull(documentSnapshot.get("approved")).equals(false)) {
+//                                callback.onMerchantPendingApproval();
+//                            } else {
+//                                callback.onMerchantUnregistered();
+//                            }
+//
+//                        }
+//                    }
+//                });
+//
+//    }
 }

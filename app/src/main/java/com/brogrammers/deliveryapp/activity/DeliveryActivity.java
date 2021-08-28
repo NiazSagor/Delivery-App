@@ -26,6 +26,10 @@ import com.brogrammers.deliveryapp.R;
 import com.brogrammers.deliveryapp.bottomsheet.DeliverySummaryBottomSheet;
 import com.brogrammers.deliveryapp.bottomsheet.LocationSelectionBottomSheet;
 import com.brogrammers.deliveryapp.bottomsheet.ReceiverDetailsBottomSheet;
+import com.brogrammers.deliveryapp.callback.OnDeliverySummaryBottomSheetInteraction;
+import com.brogrammers.deliveryapp.callback.OnLocationBottomSheetInteraction;
+import com.brogrammers.deliveryapp.callback.OnParcelOrderPlacedCallback;
+import com.brogrammers.deliveryapp.callback.OnReceiverDetailBottomSheetInteraction;
 import com.brogrammers.deliveryapp.model.ParcelDeliveryOrder;
 import com.brogrammers.deliveryapp.model.Receiver;
 import com.brogrammers.deliveryapp.viewmodel.DeliveryActivityViewModel;
@@ -65,7 +69,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class DeliveryActivity extends AppCompatActivity implements OnMapReadyCallback, RoutingListener, EasyPermissions.PermissionCallbacks, OnLocationBottomSheetInteraction, OnReceiverDetailBottomSheetInteraction, OnDeliverySummaryBottomSheetInteraction, PaymentResultListener, OnParcelOrderPlacedCallback {
+public class DeliveryActivity extends AppCompatActivity implements OnMapReadyCallback, RoutingListener, EasyPermissions.PermissionCallbacks, OnLocationBottomSheetInteraction, OnReceiverDetailBottomSheetInteraction, OnDeliverySummaryBottomSheetInteraction, OnParcelOrderPlacedCallback {
 
     private static final String TAG = "DeliveryActivity";
     private DeliveryActivityViewModel model;

@@ -78,9 +78,9 @@ public class DeliveryActivityViewModel extends ViewModel {
         getOrder().getValue().setDestinationAddress(receiver.getReceiverAddress()); // set destination address
     }
 
-    private com.brogrammers.deliveryapp.Result.Distance distance = null;
+    private Result.Distance distance = null;
 
-    public com.brogrammers.deliveryapp.Result.Distance getDistance() {
+    public Result.Distance getDistance() {
         return distance;
     }
 
@@ -117,7 +117,7 @@ public class DeliveryActivityViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onSuccess(@NotNull com.brogrammers.deliveryapp.Result result) {
+                    public void onSuccess(@NotNull Result result) {
                         distance = result.getRows().get(0).getElements().get(0).getDistance();
                         setDeliveryDistance(Utility.getDistance(distance));
 

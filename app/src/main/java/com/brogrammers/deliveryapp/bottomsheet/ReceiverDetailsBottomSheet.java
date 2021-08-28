@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.brogrammers.deliveryapp.R;
 import com.brogrammers.deliveryapp.callback.OnReceiverDetailBottomSheetInteraction;
+import com.brogrammers.deliveryapp.model.Receiver;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
